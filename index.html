@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Send Message</title>
+</head>
+<body>
+  <!--title of the page -->
+    <h1>To Send the Message</h1>
+  <!-- form a button to send the message -->
+    <form method="post">
+        <button type="submit"><i>Click Here</i></button>
+    </form>
+  <!-- display the flashed message if any-->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+  <!-- unordered list to display the message -->
+  <ul>
+    <!-- loop through the messages -->
+                {% for category, message in messages %}
+    <!-- list item to display the message -->
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+    </ul>
+        {% endif %}
+    {% endwith %}
+</body>
+</html>
